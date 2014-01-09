@@ -41,6 +41,23 @@
 
         this.each(function () {
             var easyTree = $(this);
+            $.each($(easyTree).find('ul > li'), function() {
+                console.log($(this));
+                if($(this).is('li:has(ul)')) {
+                    var root = $(this).find(':root');
+                    var value = $(root).text();
+                    $(root).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
+                    $(root).find(' > span > span').addClass('glyphicon-folder-open');
+                    $(root).find(' > span > a').text(value);
+                }
+                else {
+                    var text = $(this).text();
+                    $(this).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
+                    $(this).find(' > span > span').addClass('glyphicon-file');
+                    $(this).find(' > span > a').text(text);
+                }
+            });
+
             $(easyTree).find('li:has(ul)').addClass('parent_li').find(' > span').attr('title', options.i18n.collapseTip);
 
             // add easy tree toolbar dom
