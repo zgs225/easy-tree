@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Tree Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/easyTree.min.css">
+    <script src="dist/js/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="dist/js/easyTree.min.js"></script>
+    <style>
+        body {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+<div class="col-md-3">
+    <h3 class="text-success">Easy Tree Example</h3>
+    <div class="easy-tree">
+        <ul>
+            <li><span> <span class="glyphicon glyphicon-folder-open"></span><a href="javascript:void(0);">Example 1</a></span>
+                <ul>
+                    <li><span><span class="glyphicon glyphicon-folder-open"></span><a href="javascript:void(0);">Example
+                        1</a></span>
+                        <ul>
+                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example
+                                1</a></span></li>
+                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example
+                                2</a></span></li>
+                            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example
+                                3</a></span></li>
+                        </ul>
+                    </li>
+                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example 3</a></span>
+                    </li>
+                    <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example 3</a></span>
+                    </li>
+                </ul>
+            </li>
+            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example 3</a></span>
+            </li>
+            <li><span><span class="glyphicon glyphicon-file"></span><a href="javascript:void(0);">Example 3</a></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    (function ($) {
+        function init() {
+            $('.easy-tree').EasyTree({
+                addable: true,
+                editable: true,
+                deletable: true
+            });
+        }
+
+        window.onload = init();
+    })(jQuery)
+</script>
+</body>
+</html>

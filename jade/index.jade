@@ -1,0 +1,65 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='author', content='Yuez')
+        meta(name='copyright', content='2014 Yuez')
+        title EasyTree Example
+        link(rel='stylesheet', href='css/bootstrap.min.css')
+        link(rel='stylesheet', href='dist/css/easyTree.min.css')
+        script(src='dist/js/jquery-1.10.1.min.js')
+        script(src='js/bootstrap.min.js')
+        script(src='dist/js/easyTree.min.js')
+        script(type='text/javascript')
+            function init() {
+                $('.easy-tree').EasyTree(
+                    {
+                        addable: true,
+                        editable: true,
+                        deletable: true
+                    }
+                );
+            };
+            window.onload = init();
+    body
+        .easy-tree
+            ul
+                li
+                    span
+                        span.glyphicon.glyphicon-forder-open
+                        a(href='javascript: void(0);') 文件夹1
+                    ul
+                        li
+                            span
+                                span.glyphicon.glyphicon-forder-file
+                                a(href='javascript: void(0);') 文件1
+                        li
+                            span
+                                span.glyphicon.glyphicon-forder-open
+                                a(href='javascript: void(0);') 文件夹1
+                            ul
+                                li
+                                    span
+                                        span.glyphicon.glyphicon-forder-file
+                                        a(href='javascript: void(0);') 文件11
+                                li
+                                    span
+                                        span.glyphicon.glyphicon-forder-file
+                                        a(href='javascript: void(0);') 文件12
+                                li
+                                    span
+                                        span.glyphicon.glyphicon-forder-file
+                                        a(href='javascript: void(0);') 文件13
+                li
+                    span
+                        span.glyphicon.glyphicon-forder-file
+                        a(href='javascript: void(0);') 文件2
+                li
+                    span
+                        span.glyphicon.glyphicon-forder-file
+                        a(href='javascript: void(0);') 文件3
+                li
+                    span
+                        span.glyphicon.glyphicon-forder-file
+                        a(href='javascript: void(0);') 文件4

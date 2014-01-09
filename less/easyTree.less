@@ -1,0 +1,149 @@
+@space-size-large: 15px;
+@space-size-middle: 10px;
+@space-size-small: 5px;
+@dark-gray: #e5e2e1;
+@background-color: #e56155;
+@light-background-color: #ff6c60;
+@white: #ffffff;
+@border-radius: 3px;
+
+.solid-border(@border-color) {
+  border: 1px solid @border-color;
+}
+
+.easy-tree {
+  min-height: 20px;
+  margin-bottom: @space-size-large;
+  background-color: @background-color;
+  color: @white;
+  border-style: none;
+  padding-bottom: @space-size-large;
+
+  > ul {
+    padding-left: @space-size-large;
+
+    > li {
+      :before, :after {
+        border: none;
+      }
+    }
+  }
+
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: @space-size-middle @space-size-small 0 @space-size-small;
+    position: relative;
+
+    :before, :after {
+      content: '';
+      left: -30px;
+      position: absolute;
+      right: auto
+    }
+
+    :before {
+      .solid-border(@white);
+      bottom: 50px;
+      height: 100%;
+      top: 0;
+      width: 1px
+    }
+
+    :after {
+      .solid-border(@white);
+      height: 20px;
+      top: 25px;
+      width: 35px
+    }
+
+    :last-child {
+      :before {
+        height: 30px;
+      }
+    }
+
+    > span {
+      .solid-border(@white);
+      border-radius: @border-radius;
+      display: inline-block;
+      padding: @space-size-small;
+      text-decoration: none;
+
+      > a {
+        color: @white;
+        text-decoration: none;
+      }
+
+      > span {
+        margin-right: @space-size-small;
+      }
+    }
+  }
+
+  li.parent_li {
+    > span {
+      cursor: pointer;
+
+      :hover {
+        background: @light-background-color;
+        color: @white;
+
+        + ul li span {
+          background: @light-background-color;
+          color: @white;
+        }
+
+        + ul li.li_selected span {
+          background-color: @dark-gray;
+          color: @background-color;
+        }
+      }
+    }
+  }
+
+  li.li_selected {
+    > span {
+      background: @dark-gray;
+      color: @background-color;
+
+      :hover {
+        background: #fafafa;
+        color: @light-background-color;
+
+        > a {
+          background: #fafafa;
+          color: @light-background-color;
+        }
+      }
+
+      > a {
+        background: @dark-gray;
+        color: @background-color;
+      }
+    }
+  }
+
+  .easy-tree-toolbar {
+    background-color: @white;
+
+    > div {
+      display: inline-block;
+
+      > button {
+        border-radius: 0;
+        margin: @space-size-large @space-size-small;
+      }
+    }
+
+    .create .input-group {
+      top: -15px;
+      margin-left: @space-size-small;
+      margin-right: @space-size-small;
+
+      input, button {
+        border-radius: 1;
+      }
+    }
+  }
+}
