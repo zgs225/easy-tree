@@ -43,7 +43,6 @@
                 var text;
                 if($(this).is('li:has(ul)')) {
                     var children = $(this).find(' > ul');
-                    console.log(children);
                     $(children).remove();
                     text = $(this).text();
                     $(this).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
@@ -190,6 +189,10 @@
                             .find('.confirm').html(options.i18n.confirmButtonLabel);
                         $(easyTree).find('.alert .alert-content .confirm').on('click', function () {
                             $(selected).find(' ul ').remove();
+                            if($(selected).parent('ul').find(' > li').length <= 1) {
+                                $(selected).parents('li').removeClass('parent_li').find(' > span > span').removeClass('glyphicon-folder-open').addClass('glyphicon-file');
+                                $(selected).parent('ul').remove();
+                            }
                             $(selected).remove();
                             $(dangerAlert).remove();
                         });
