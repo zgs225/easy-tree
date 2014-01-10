@@ -5,6 +5,9 @@ A plugin base on jquery and bootstrap 3, can convert an un-order list to a tree 
 selectable, addable, editable and deletable
 
 ##Demo##
+
+[Example](http://zgs225.github.io/easy-tree)
+
 1. git clone
 2. npm install
 3. grunt
