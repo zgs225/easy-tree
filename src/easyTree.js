@@ -190,6 +190,10 @@
                             .find('.confirm').html(options.i18n.confirmButtonLabel);
                         $(easyTree).find('.alert .alert-content .confirm').on('click', function () {
                             $(selected).find(' ul ').remove();
+                            if($(selected).parent('ul').find(' > li').length <= 1) {
+                                $(selected).parent('ul').remove();
+                                $(selected).parents('li').removeClass('parent_li').find(' > span').removeClass('glyphicon-folder-close').removeClass('glyphicon-folder-open').addClass('glyphicon-file');
+                            }
                             $(selected).remove();
                             $(dangerAlert).remove();
                         });
