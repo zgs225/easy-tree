@@ -8,7 +8,6 @@
 (function ($) {
     $.fn.EasyTree = function (options) {
         var defaults = {
-            selector: '.easy-tree',
             selectable: true,
             deletable: false,
             editable: false,
@@ -31,9 +30,8 @@
             }
         };
 
-        var warningAlert = $('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>警告！</strong><span class="alert-content"></span> </div> ');
-
-        var dangerAlert = $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong>危险！</strong><span class="alert-content"></span> </div> ');
+        var warningAlert = $('<div class="alert alert-warning alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong></strong><span class="alert-content"></span> </div> ');
+        var dangerAlert = $('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><strong></strong><span class="alert-content"></span> </div> ');
 
         var createInput = $('<div class="input-group"><input type="text" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default btn-success confirm"></button> </span><span class="input-group-btn"><button type="button" class="btn btn-default cancel"></button> </span> </div> ');
 
@@ -42,16 +40,19 @@
         this.each(function () {
             var easyTree = $(this);
             $.each($(easyTree).find('ul > li'), function() {
-                console.log($(this));
+                var text;
                 if($(this).is('li:has(ul)')) {
-                    var root = $(this).find(':root');
-                    var value = $(root).text();
-                    $(root).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
-                    $(root).find(' > span > span').addClass('glyphicon-folder-open');
-                    $(root).find(' > span > a').text(value);
+                    var children = $(this).find(' > ul');
+                    console.log(children);
+                    $(children).remove();
+                    text = $(this).text();
+                    $(this).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
+                    $(this).find(' > span > span').addClass('glyphicon-folder-open');
+                    $(this).find(' > span > a').text(text);
+                    $(this).append(children);
                 }
                 else {
-                    var text = $(this).text();
+                    text = $(this).text();
                     $(this).html('<span><span class="glyphicon"></span><a href="javascript: void(0);"></a> </span>');
                     $(this).find(' > span > span').addClass('glyphicon-file');
                     $(this).find(' > span > a').text(text);
