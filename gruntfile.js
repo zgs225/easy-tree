@@ -7,12 +7,12 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'dist/js/easyTree.min.js': ['src/easyTree.js']
+                    'dist/js/application.min.js': ['js/jquery-1.10.2.min.js','js/bootstrap.min.js', 'js/easyTree.js']
                 }
             }
         },
         jshint: {
-            files: ['gruntfile.js', 'src/easyTree.js'],
+            files: ['gruntfile.js', 'js/easyTree.js'],
             options: {
                 globals: {
                     jQuery: true,
@@ -50,6 +50,14 @@ module.exports = function(grunt) {
                     "index.html": ["jade/index.jade"]
                 }
             }
+        },
+
+        coffee: {
+            compile: {
+                files: {
+                    'js/easyTree.js': 'src/easyTree.coffee'
+                }
+            }
         }
     });
 
@@ -58,6 +66,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
 
-    grunt.registerTask('default', ['jshint', 'uglify', 'cssmin']);
+    grunt.registerTask('default', ['coffee', 'jshint', 'uglify', 'less', 'cssmin']);
 };

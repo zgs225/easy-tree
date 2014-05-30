@@ -14,135 +14,27 @@
 .easy-tree {
   min-height: 20px;
   margin-bottom: @space-size-large;
+  margin-top: @space-size-large;
+  padding-bottom: @space-size-large;
+  padding-top: @space-size-large;
+  padding-right: @space-size-large;
   background-color: @background-color;
   color: @white;
   border-style: none;
-  padding-bottom: @space-size-large;
 
-  > ul {
+  ul {
+    list-style: none;
     padding-left: @space-size-large;
 
-    > li {
-      :before, :after {
-        border: none;
-      }
-    }
-  }
-
-  li {
-    list-style-type: none;
-    margin: 0;
-    padding: @space-size-middle @space-size-small 0 @space-size-small;
-    position: relative;
-
-    :before, :after {
-      content: '';
-      left: -30px;
-      position: absolute;
-      right: auto
-    }
-
-    :before {
-      .solid-border(@white);
-      bottom: 50px;
-      height: 100%;
-      top: 0;
-      width: 1px
-    }
-
-    :after {
-      .solid-border(@white);
-      height: 20px;
-      top: 25px;
-      width: 35px
-    }
-
-    :last-child {
-      :before {
-        height: 30px;
-      }
-    }
-
-    > span {
-      .solid-border(@white);
+    li {
+      border: 1px solid @white;
       border-radius: @border-radius;
-      display: inline-block;
       padding: @space-size-small;
-      text-decoration: none;
 
-      > a {
-        color: @white;
-        text-decoration: none;
-      }
-
-      > span {
+      > .glyphicon {
+        display: inline-block;
         margin-right: @space-size-small;
-      }
-    }
-  }
-
-  li.parent_li {
-    > span {
-      cursor: pointer;
-
-      :hover {
-        background: @light-background-color;
-        color: @white;
-
-        + ul li span {
-          background: @light-background-color;
-          color: @white;
-        }
-
-        + ul li.li_selected span {
-          background-color: @dark-gray;
-          color: @background-color;
-        }
-      }
-    }
-  }
-
-  li.li_selected {
-    > span {
-      background: @dark-gray;
-      color: @background-color;
-
-      :hover {
-        background: #fafafa;
-        color: @light-background-color;
-
-        > a {
-          background: #fafafa;
-          color: @light-background-color;
-        }
-      }
-
-      > a {
-        background: @dark-gray;
-        color: @background-color;
-      }
-    }
-  }
-
-  .easy-tree-toolbar {
-    background-color: @white;
-
-    > div {
-      display: inline-block;
-
-      > button {
-        border-radius: 0;
-        margin: @space-size-large @space-size-small;
-      }
-    }
-
-    .create .input-group {
-      top: -15px;
-      margin-left: @space-size-small;
-      margin-right: @space-size-small;
-
-      input, button {
-        border-radius: 1;
+        cursor: pointer;
       }
     }
   }

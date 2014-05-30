@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="dist/css/easyTree.min.css">
-    <script src="js/jquery-1.10.2.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="dist/js/easyTree.min.js"></script>
+    <!--<script src="js/jquery-1.10.2.min.js"></script>-->
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!--<script src="js/easyTree.js"></script>-->
+    <script src="dist/js/application.min.js"></script>
     <style>
         body {
             background: #eee;
@@ -22,9 +23,9 @@
         <ul>
             <li>Example 1</li>
             <li>Example 2</li>
-            <li>Example 3
+            <li>网站导航
                 <ul>
-                    <li>Example 1</li>
+                    <li><a href="http://baidu.com" target="_blank">百度</a></li>
                     <li>Example 2
                         <ul>
                             <li>Example 1</li>
@@ -56,12 +57,14 @@
     </div>
 </div>
 <script>
+    var theEasyTree;
     (function ($) {
         function init() {
-            $('.easy-tree').EasyTree({
+            theEasyTree = $('.easy-tree').EasyTree({
                 addable: true,
                 editable: true,
-                deletable: true
+                deletable: true,
+                debug: true
             });
         }
 
