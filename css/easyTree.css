@@ -38,7 +38,7 @@
 .easy-tree li::after {
     border-top: 1px solid #fff;
     height: 20px;
-    top: 25px;
+    top: 30px;
     width: 35px
 }
 
